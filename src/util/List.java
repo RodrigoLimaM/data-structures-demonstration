@@ -18,7 +18,7 @@ public class List <T extends Comparable<T>> {
     public void add(T data, int pos) {
         if (pos == 0){
             addFirst(data);
-        } else if (pos == size() -1) {
+        } else if (pos == size() -2) {
             addLast(data);
         } else {
             Node aux = scrollThroughTheList(start, 1, pos);
