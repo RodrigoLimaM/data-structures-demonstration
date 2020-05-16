@@ -33,7 +33,7 @@ public class List <T extends Comparable<T>> {
             start = node;
             end = node;
         } else {
-            Node aux = getLastNode();
+            Node aux = end;
             aux.setNext(new Node(data, null, aux));
             end = aux.getNext();
         }
@@ -45,6 +45,7 @@ public class List <T extends Comparable<T>> {
             start = node;
         } else {
             Node aux = new Node(data, start, null);
+            start.setPrevious(aux);
             start = aux;
         }
     }
@@ -144,10 +145,6 @@ public class List <T extends Comparable<T>> {
         return aux;
     }
 
-    private Node getLastNode(){
-        return end;
-    }
-
     private Node getPenultimateNode(){
         return end.getPrevious();
     }
@@ -163,7 +160,7 @@ public class List <T extends Comparable<T>> {
         if (isEmpty())
             throw new NullPointerException("Empty List");
 
-        Node aux = getLastNode();
+        Node aux = end;
 
         return (T) aux.getData();
     }
