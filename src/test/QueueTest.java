@@ -1,6 +1,7 @@
 package test;
 
 import org.junit.jupiter.api.Test;
+import util.List;
 import util.Queue;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -82,5 +83,13 @@ class QueueTest {
         Queue<Integer> actual = new Queue<>(1,3,4,5);
         assertEquals(1, actual.indexOf(3));
         assertEquals(-1, actual.indexOf(2));
+    }
+
+    @Test
+    void isSingleElement() {
+        List<Integer> shouldBeTrue = new List<>(1);
+        List<Integer> shouldBeFalse = new List<>(1,3,4,5);
+        assertTrue(shouldBeTrue.isSingleElement());
+        assertFalse(shouldBeFalse.isSingleElement());
     }
 }

@@ -1,6 +1,7 @@
 package test;
 
 import org.junit.jupiter.api.Test;
+import util.List;
 import util.Stack;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -19,7 +20,7 @@ class StackTest {
     }
 
     @Test
-    void addLast() {
+    void push() {
         Stack<Integer> expected = new Stack<>(1,2,3);
         Stack<Integer> actual = new Stack<>();
         actual.push(1);
@@ -29,7 +30,7 @@ class StackTest {
     }
 
     @Test
-    void removeLast() {
+    void pop() {
         Stack<Integer> expected = new Stack<>();
         Stack<Integer> actual = new Stack<>(1,2,3);
         actual.pop();
@@ -82,5 +83,13 @@ class StackTest {
         Stack<Integer> actual = new Stack<>(1,3,4,5);
         assertEquals(1, actual.indexOf(3));
         assertEquals(-1, actual.indexOf(2));
+    }
+
+    @Test
+    void isSingleElement() {
+        List<Integer> shouldBeTrue = new List<>(1);
+        List<Integer> shouldBeFalse = new List<>(1,3,4,5);
+        assertTrue(shouldBeTrue.isSingleElement());
+        assertFalse(shouldBeFalse.isSingleElement());
     }
 }
