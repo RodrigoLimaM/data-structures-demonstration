@@ -43,6 +43,7 @@ public class List <T extends Comparable<T>> {
         if (isEmpty()) {
             Node node = new Node(data);
             start = node;
+            end = node;
         } else {
             Node aux = new Node(data, start, null);
             start.setPrevious(aux);
