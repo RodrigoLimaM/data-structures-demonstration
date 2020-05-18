@@ -18,11 +18,13 @@ public class List <T extends Comparable<T>> {
     public void add(T data, int pos) {
         if (pos == 0){
             addFirst(data);
-        } else if (pos == size() -2) {
+        } else if (pos == size()) {
             addLast(data);
         } else {
             Node aux = scrollThroughTheList(start, 1, pos);
+            System.out.println(aux);
             Node aux1 = new Node(data, aux.getNext(), aux);
+            aux.getNext().setPrevious(aux1);
             aux.setNext(aux1);
         }
     }
@@ -60,6 +62,7 @@ public class List <T extends Comparable<T>> {
             removeLast();
         } else {
             Node aux = scrollThroughTheList(start, 1, pos);
+            aux.getNext().getNext().setPrevious(aux);
             aux.setNext(aux.getNext().getNext());
         }
     }

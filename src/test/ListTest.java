@@ -20,11 +20,14 @@ class ListTest {
 
     @Test
     void add() {
-        List<Integer> expected = new List<>(1,2,3);
+        List<Integer> expected = new List<>(1,2);
         List<Integer> actual = new List<>();
         actual.add(1,0);
         actual.add(2,1);
-        actual.add(3,2);
+        assertEquals(expected.toString(), actual.toString());
+        expected = new List<>(1,2,3);
+        actual = new List<>(1,3);
+        actual.add(2, 1);
         assertEquals(expected.toString(), actual.toString());
     }
 
@@ -50,8 +53,9 @@ class ListTest {
 
     @Test
     void remove() {
-        List<Integer> expected = new List<>(1,3);
+        List<Integer> expected = new List<>(1);
         List<Integer> actual = new List<>(1,2,3);
+        actual.remove(1);
         actual.remove(1);
         assertEquals(expected.toString(), actual.toString());
     }
